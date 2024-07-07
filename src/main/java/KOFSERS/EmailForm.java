@@ -2,11 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.emailsender.sendemail;
+package KOFSERS;
 
-import java.util.Random;
 import javax.swing.JOptionPane;
-import org.springframework.boot.SpringApplication;
+import project.InsertUpdateDelete;
 
 /**
  *
@@ -14,8 +13,6 @@ import org.springframework.boot.SpringApplication;
  */
 public class EmailForm extends javax.swing.JFrame {
 
-    static int otp; 
-    public static String emailadd;
     
     public EmailForm() {
         initComponents();
@@ -31,9 +28,6 @@ public class EmailForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        txt_email = new javax.swing.JTextField();
-        btn_send = new javax.swing.JButton();
         txt_otp = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -43,20 +37,6 @@ public class EmailForm extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Email Verification", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Montserrat", 1, 24), new java.awt.Color(255, 0, 102))); // NOI18N
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel4.setText("Email Address:");
-
-        txt_email.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-
-        btn_send.setBackground(new java.awt.Color(255, 51, 102));
-        btn_send.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_send.setText("Send Code");
-        btn_send.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_sendActionPerformed(evt);
-            }
-        });
 
         txt_otp.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
@@ -76,7 +56,7 @@ public class EmailForm extends javax.swing.JFrame {
         lbl_message.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lbl_message.setForeground(new java.awt.Color(0, 153, 51));
         lbl_message.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_message.setText("Email Verification Complete");
+        lbl_message.setText("Check your Email for OTP to Verify");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -87,38 +67,24 @@ public class EmailForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_message, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_email, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                            .addComponent(txt_otp))
+                        .addComponent(jLabel5)
+                        .addGap(39, 39, 39)
+                        .addComponent(txt_otp, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_send, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(btn_send)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_otp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txt_otp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5)))
                 .addGap(18, 18, 18)
-                .addComponent(lbl_message, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                .addComponent(lbl_message, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -143,23 +109,13 @@ public class EmailForm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sendActionPerformed
-            Random random = new Random();
-            int min = 100000;
-            int max = 999999;
-            otp = random.nextInt(max-min)+min;
-            emailadd = txt_email.getText();
-            SpringApplication.run(SendemailApplication.class, new String [0]);
-            JOptionPane.showMessageDialog(null, "OTP sent, Please check your email for the OTP");
-            
-           
-            
-    }//GEN-LAST:event_btn_sendActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int otp2 = Integer.parseInt(txt_otp.getText());
-        if(otp==otp2){
-            lbl_message.setText("Email Verificaiton Complete");
+        if(Signup.otp==otp2){
+            String Query = "UPDATE complete SET status='true' WHERE email = '"+Signup.emailadd+"'";
+            InsertUpdateDelete.setData(Query, "Email Verification complete");
+            this.dispose();
+            new Login().show();
         }else{
             JOptionPane.showMessageDialog(null, "Wrong OTP");
         }
@@ -199,13 +155,10 @@ public class EmailForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_send;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_message;
-    private javax.swing.JTextField txt_email;
     private javax.swing.JTextField txt_otp;
     // End of variables declaration//GEN-END:variables
 }

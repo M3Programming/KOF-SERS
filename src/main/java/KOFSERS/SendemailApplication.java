@@ -1,4 +1,4 @@
-package com.emailsender.sendemail;
+package KOFSERS;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ public class SendemailApplication {
         @EventListener(ApplicationReadyEvent.class)
         public void sendmail(){
              
-            senderservice.send(EmailForm.emailadd,"Email Verification",Integer.toString(EmailForm.otp));
+            senderservice.send(Signup.emailadd,"Email Verification",Integer.toString(Signup.otp));
         }
 
 }
